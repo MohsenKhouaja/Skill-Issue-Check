@@ -65,6 +65,16 @@ document.addEventListener("keydown", (e) => {
       } else if (!submitBtn.classList.contains("hide") && !submitBtn.disabled) {
         submitQuiz();
       }
+    } else if (e.key === "Enter") {
+      // Enter only shows feedback, doesn't advance
+      const currentAnswer = userAnswers[currentQuestionIndex];
+      const hasAnswer = Array.isArray(currentAnswer)
+        ? currentAnswer.length > 0
+        : currentAnswer !== null && currentAnswer !== undefined;
+
+      if (hasAnswer && !document.querySelector(".explanation-feedback")) {
+        showFeedbackOnly();
+      }
     }
   }
 });
@@ -311,7 +321,7 @@ function loadQuestion() {
     optionElement.classList.add("option");
     optionElement.textContent = option;
     optionElement.dataset.index = index;
-    optionElement.style.pointerEvents = 'auto'; // Re-enable clicking
+    optionElement.style.pointerEvents = "auto"; // Re-enable clicking
 
     // Highlight selected options if user has previously answered
     if (userAnswers[currentQuestionIndex]) {
@@ -413,8 +423,12 @@ function showPrevQuestion() {
 }
 
 function showNextQuestion(isSkip = false) {
-  // Show feedback before moving to next question
-  if (!isSkip) {
+  // Check if feedback was already shown
+  const feedbackShown =
+    document.querySelector(".explanation-feedback") !== null;
+
+  if (!isSkip && !feedbackShown) {
+    // Show feedback before moving to next question
     showFeedback();
     // Wait a moment before moving to next question
     setTimeout(() => {
@@ -423,7 +437,14 @@ function showNextQuestion(isSkip = false) {
         loadQuestion();
       }
     }, 1500);
+  } else if (!isSkip && feedbackShown) {
+    // Feedback already shown by Enter key, just move to next
+    if (currentQuestionIndex < currentQuestions.length - 1) {
+      currentQuestionIndex++;
+      loadQuestion();
+    }
   } else {
+    // Skip case
     if (currentQuestionIndex < currentQuestions.length - 1) {
       currentQuestionIndex++;
       loadQuestion();
@@ -440,8 +461,8 @@ function showFeedback() {
   const options = optionsContainer.querySelectorAll(".option");
 
   // Disable option clicking during feedback
-  options.forEach(option => {
-    option.style.pointerEvents = 'none';
+  options.forEach((option) => {
+    option.style.pointerEvents = "none";
   });
 
   if (isMultiAnswer) {
@@ -468,9 +489,66 @@ function showFeedback() {
     });
   }
 
+  // Show explanation below the options
+  const explanationDiv = document.createElement("div");
+  explanationDiv.classList.add("explanation-feedback");
+  explanationDiv.innerHTML = `<strong>Explication:</strong> ${
+    currentQuestion.explanation || "Aucune explication disponible."
+  }`;
+  optionsContainer.appendChild(explanationDiv);
+
   // Disable next button during feedback
   nextBtn.disabled = true;
   submitBtn.disabled = true;
+}
+
+function showFeedbackOnly() {
+  const currentQuestion = currentQuestions[currentQuestionIndex];
+  const userAnswer = userAnswers[currentQuestionIndex];
+  const isMultiAnswer = Array.isArray(currentQuestion.answer);
+  const options = optionsContainer.querySelectorAll(".option");
+
+  // Don't show feedback if already shown
+  if (document.querySelector(".explanation-feedback")) {
+    return;
+  }
+
+  // Disable option clicking during feedback
+  options.forEach((option) => {
+    option.style.pointerEvents = "none";
+  });
+
+  if (isMultiAnswer) {
+    // For multi-answer questions
+    options.forEach((option, index) => {
+      if (currentQuestion.answer.includes(index)) {
+        option.classList.add("correct");
+      }
+      if (Array.isArray(userAnswer) && userAnswer.includes(index)) {
+        if (!currentQuestion.answer.includes(index)) {
+          option.classList.add("incorrect");
+        }
+      }
+    });
+  } else {
+    // For single answer questions
+    options.forEach((option, index) => {
+      if (index === currentQuestion.answer) {
+        option.classList.add("correct");
+      }
+      if (userAnswer === index && index !== currentQuestion.answer) {
+        option.classList.add("incorrect");
+      }
+    });
+  }
+
+  // Show explanation below the options
+  const explanationDiv = document.createElement("div");
+  explanationDiv.classList.add("explanation-feedback");
+  explanationDiv.innerHTML = `<strong>Explication:</strong> ${
+    currentQuestion.explanation || "Aucune explication disponible."
+  }`;
+  optionsContainer.appendChild(explanationDiv);
 }
 
 function isCorrectAnswer(answer, correctAnswer) {
@@ -526,31 +604,31 @@ function calculateScore() {
 function submitQuiz() {
   // Show feedback for last question
   showFeedback();
-  
+
   // Wait before showing results
   setTimeout(() => {
     // Calculate score
     const wrongAnswers = calculateScore();
 
-  // Update score text
-  scoreText.textContent = `Vous avez obtenu ${score}/${currentQuestions.length} points`;
+    // Update score text
+    scoreText.textContent = `Vous avez obtenu ${score}/${currentQuestions.length} points`;
 
-  // Display wrong answers with explanations
-  const wrongAnswersContainer = document.getElementById(
-    "wrong-answers-container"
-  );
-  wrongAnswersContainer.innerHTML = "";
+    // Display wrong answers with explanations
+    const wrongAnswersContainer = document.getElementById(
+      "wrong-answers-container"
+    );
+    wrongAnswersContainer.innerHTML = "";
 
-  if (wrongAnswers.length > 0) {
-    const heading = document.createElement("h3");
-    heading.textContent = "Questions incorrectes:";
-    wrongAnswersContainer.appendChild(heading);
+    if (wrongAnswers.length > 0) {
+      const heading = document.createElement("h3");
+      heading.textContent = "Questions incorrectes:";
+      wrongAnswersContainer.appendChild(heading);
 
-    wrongAnswers.forEach((item, index) => {
-      const container = document.createElement("div");
-      container.classList.add("wrong-answer-item");
+      wrongAnswers.forEach((item, index) => {
+        const container = document.createElement("div");
+        container.classList.add("wrong-answer-item");
 
-      container.innerHTML = `
+        container.innerHTML = `
                 <p class="question-text"><strong>Question ${
                   index + 1
                 }:</strong> ${item.question}</p>
@@ -564,15 +642,15 @@ function submitQuiz() {
                     <p><strong>Explication:</strong> ${item.explanation}</p>
                 </div>
             `;
-      wrongAnswersContainer.appendChild(container);
-    });
-  } else {
-    const perfectScore = document.createElement("p");
-    perfectScore.textContent =
-      "Félicitations ! Vous avez répondu correctement à toutes les questions !";
-    perfectScore.classList.add("perfect-score");
-    wrongAnswersContainer.appendChild(perfectScore);
-  }
+        wrongAnswersContainer.appendChild(container);
+      });
+    } else {
+      const perfectScore = document.createElement("p");
+      perfectScore.textContent =
+        "Félicitations ! Vous avez répondu correctement à toutes les questions !";
+      perfectScore.classList.add("perfect-score");
+      wrongAnswersContainer.appendChild(perfectScore);
+    }
 
     // Show results
     quizContainer.classList.add("hide");
