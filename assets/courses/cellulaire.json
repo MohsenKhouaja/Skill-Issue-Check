@@ -1,0 +1,1036 @@
+{
+  "Réseaux Cellulaires": [
+    {
+      "question": "Le modèle de prédiction de la propagation permet de:",
+      "options": [
+        "calculer l’affaiblissement canal",
+        "la couverture radio d’un site",
+        "calculer la capacité des cellules",
+        "déterminer l’atténuation dans les feeders"
+      ],
+      "answer": [0, 1],
+      "explanation": "Les modèles de propagation servent à estimer l'affaiblissement du signal (path loss) et donc à prédire la zone de couverture d'un site."
+    },
+    {
+      "question": "Le modele d’Okumura-Hata est un modele:",
+      "options": [
+        "empirique",
+        "semi-empirique",
+        "Macocellulaire",
+        "Microcellulaire"
+      ],
+      "answer": [0, 2],
+      "explanation": "Le modèle d'Okumura-Hata est un modèle empirique basé sur des mesures réelles, conçu principalement pour les environnements macrocellulaires."
+    },
+    {
+      "question": "La calibration d’un modèle de prédiction de la propagation nécessite :",
+      "options": [
+        "des mesures du niveau d’interférence dans le réseau",
+        "des mesures de niveau de puissance reçu analogiques",
+        "des mesures de niveau de puissance reçu numériques",
+        "des mesures effectuées dans un réseau chargé"
+      ],
+      "answer": [1],
+      "explanation": "La calibration (tuning) compare les prédictions aux mesures réelles du champ (puissance reçue) pour ajuster les paramètres du modèle."
+    },
+    {
+      "question": "L’écart type dans un nuage de mesures radio représente :",
+      "options": [
+        "l’effet de masque",
+        "le degré de la non uniformité de l’environnement",
+        "la puissance du signal",
+        "erreur des mesures"
+      ],
+      "answer": [0, 1],
+      "explanation": "L'écart type (shadowing) reflète les variations du signal dues aux obstacles (effet de masque) et à la non-uniformité de l'environnement (clutter)."
+    },
+    {
+      "question": "La mise à jour de localisation périodique :",
+      "options": [
+        "permet de minimiser le coût de mise à jour de localisation",
+        "exige au mobile de mettre à jour sa localisation à chaque visite d’une nouvelle zone de localisation",
+        "provoque une consommation de ressources indépendante de la mobilité de l’usager",
+        "est une technique simple"
+      ],
+      "answer": [2, 3],
+      "explanation": "Elle force le mobile à se signaler régulièrement même s'il ne bouge pas, consommant des ressources indépendamment de la mobilité, mais reste un mécanisme simple pour confirmer la présence."
+    },
+    {
+      "question": "Le protocole S-ALOHA permet :",
+      "options": [
+        "d’écouter le canal",
+        "de réserver à l’avance des tranches de temps pour les stations ayant des paquets à émettre",
+        "un contrôle centralisé pour l’accès aux canaux",
+        "de découper le temps en slots et de n’autoriser l’émission qu’en début des slots"
+      ],
+      "answer": [0, 3],
+      "explanation": "Slotted ALOHA découpe le temps en slots et synchronise les émissions au début de ceux-ci pour réduire les collisions par rapport à ALOHA pur."
+    },
+    {
+      "question": "Le concept cellulaire repose sur :",
+      "options": [
+        "le handover",
+        "une organisation anarchique du réseau",
+        "le découpage d’un territoire en plusieurs zones géographiques hexagonales",
+        "la réutilisation de fréquences"
+      ],
+      "answer": [0, 2, 3],
+      "explanation": "Le concept cellulaire utilise le découpage en cellules (souvent représentées par des hexagones), la réutilisation des fréquences pour augmenter la capacité, et le handover pour la mobilité."
+    },
+    {
+      "question": "La technique d’accès multiple TDMA consiste à :",
+      "options": [
+        "autoriser l’allocation de la totalité de la bande de fréquences en tout temps et de manière simultanée à tous les utilisateurs",
+        "offrir la bande de fréquences à chaque utilisateur pendant un intervalle de temps donné",
+        "diviser la bande de fréquences en plusieurs sous bandes",
+        "diviser la bande de fréquences en plusieurs sous bandes dont chacune est utilisée pendant un intervalle de temps particulier"
+      ],
+      "answer": [1],
+      "explanation": "Le TDMA (Time Division Multiple Access) partage la bande de fréquence en allouant des slots temporels (intervalles de temps) aux utilisateurs."
+    },
+    {
+      "question": "Le duplexage est le mécanisme qui permet :",
+      "options": [
+        "d’assurer des communications unidirectionnelles",
+        "de minimiser la consommation des ressources",
+        "de séparer entre la voie montante et la voie descendante",
+        "d’assurer des communications bidirectionnelles"
+      ],
+      "answer": [2, 3],
+      "explanation": "Le duplexage (FDD ou TDD) permet la communication bidirectionnelle en séparant les signaux émis et reçus (montants et descendants)."
+    },
+    {
+      "question": "Dans un réseau radio-mobile, le sous-système radio permet :",
+      "options": [
+        "le stockage et la mise à jour des données des abonné",
+        "l’émission et la réception des appels",
+        "le regroupement d’un certain nombre de stations de base",
+        "la centralisation de la commande de l’opérateur"
+      ],
+      "answer": [1, 2],
+      "explanation": "Le BSS (Base Station Subsystem) gère l'interface radio, l'émission/réception via les BTS, et leur regroupement/contrôle via le BSC."
+    },
+    {
+      "question": "Une méthode d’accès multiple permet :",
+      "options": [
+        "de définir des protocoles d’accès aux canaux",
+        "de réserver de façon permanente une ressource à chaque usager",
+        "de définir une méthode de partage de la bande de fréquences en canaux physiques",
+        "une allocation dynamique des canaux"
+      ],
+      "answer": [2],
+      "explanation": "L'accès multiple (FDMA, TDMA, CDMA) définit comment la ressource spectrale est partagée pour créer des canaux physiques utilisables par plusieurs utilisateurs."
+    },
+    {
+      "question": "Dans un réseau radio-mobile, le sous-système réseau permet :",
+      "options": [
+        "le stockage et la mise à jour des données des abonnés",
+        "l’émission et la réception des appels",
+        "gestion de la mobilité et routage des appels",
+        "la centralisation de la commande de l’opérateur"
+      ],
+      "answer": [0, 2],
+      "explanation": "Le NSS (Network Subsystem) contient les bases de données (HLR/VLR) et les commutateurs (MSC) pour gérer les données abonnés, la mobilité et le routage."
+    },
+    {
+      "question": "Dans un réseau radio-mobile, le roaming nécessite :",
+      "options": [
+        "la mise en œuvre d’une identification spécifique des usagers",
+        "l’établissement d’une communication",
+        "au mobile de rester à l’état de veille",
+        "au système de connaître en permanence la localisation de chaque mobile"
+      ],
+      "answer": [0, 3],
+      "explanation": "Le roaming permet d'utiliser un autre réseau; cela requiert une identification unique (IMSI) et la capacité du réseau visité à localiser l'abonné pour le joindre."
+    },
+    {
+      "question": "Parmi les objectifs des systèmes 2G est d’offrir :",
+      "options": [
+        "l’intégration de services",
+        "le service voix et les données à faible débit",
+        "l’accès paquet",
+        "le roaming"
+      ],
+      "answer": [0, 1, 3],
+      "explanation": "La 2G (GSM) visait à offrir la voix numérique, des données bas débit (SMS, circuit data), l'intégration de services de base et le roaming international."
+    },
+    {
+      "question": "Les fonctions du RAN comprennent :",
+      "options": [
+        "l’allocation des canaux lors de l’accès d’un mobile",
+        "la gestion du handover",
+        "le service de renvoi d’appel",
+        "la gestion de la localisation"
+      ],
+      "answer": [0, 1],
+      "explanation": "Le RAN (Radio Access Network) gère les ressources radio, y compris l'allocation des canaux et le contrôle du handover."
+    },
+    {
+      "question": "L’AuC sert à :",
+      "options": [
+        "Stocker les TMSI des abonnés actifs",
+        "la production des triplets d’authentification",
+        "la gestion du handover inter core network",
+        "la gestion du renvoi d’appels"
+      ],
+      "answer": [1],
+      "explanation": "L'AuC (Authentication Center) génère les vecteurs d'authentification (triplets RAND, SRES, Kc) pour sécuriser l'accès."
+    },
+    {
+      "question": "La technique d’entrelacement permet de :",
+      "options": [
+        "lutter contre l’écoute indiscrète",
+        "les collisions entre paquets d’accès",
+        "réduire l’impact des évanouissements dus aux multi-trajets",
+        "augmenter la durée de vie des batteries"
+      ],
+      "answer": [2],
+      "explanation": "L'entrelacement disperse les bits d'information dans le temps pour éviter qu'un évanouissement (fading) rapide ne détruise un bloc entier de données consécutives."
+    },
+    {
+      "question": "Le BSC a pour fonctions principales :",
+      "options": [
+        "La protection des données utilisateur",
+        "la gestion du handover",
+        "la gestion du codage source",
+        "la gestion du contrôle de puissance"
+      ],
+      "answer": [1, 3],
+      "explanation": "Le BSC (Base Station Controller) gère les ressources radio, décide des handovers intra-BSS et contrôle la puissance d'émission des mobiles et BTS."
+    },
+    {
+      "question": "L’état idle GPRS:",
+      "options": [
+        "est équivalent à l’état éteint GSM",
+        "permet au mobile de faire la mise a jour de la zone de localisation",
+        "permet au mobile de faire la mise a jour de la zone de routage",
+        "permet de recevoir de messages de paging en mode données."
+      ],
+      "answer": [0],
+      "explanation": "En mode GPRS Idle, le mobile n'est pas attaché au service GPRS, ce qui est comparable à être éteint du point de vue du réseau GPRS."
+    },
+    {
+      "question": "Le le schéma de codage CS1:",
+      "options": [
+        "est un codage canal pour protéger les information contre les erreurs de transmission",
+        "est utilisé dans les mauvaises conditions radio",
+        "est utilisé dans les meilleures conditions radio",
+        "est appliqué par les PCU"
+      ],
+      "answer": [0, 1],
+      "explanation": "CS1 est le schéma de codage GPRS le plus robuste (fort taux de redondance), utilisé pour protéger les données (notamment la signalisation) dans de mauvaises conditions radio."
+    },
+    {
+      "question": "Le critère de déclenchement de HO sur meilleure cellule permet de faire migrer les mobiles vers des cellules :",
+      "options": [
+        "de plus grande capacité",
+        "de plus grande taille",
+        "assurant une liaison de moindre puissance",
+        "assurant une liaison de plus grand débit"
+      ],
+      "answer": [2],
+      "explanation": "Le handover vers la meilleure cellule (basé sur le bilan de liaison) permet de se connecter à la station de base nécessitant le moins de puissance d'émission pour maintenir la qualité, réduisant ainsi les interférences."
+    },
+    {
+      "question": "Le recours à un hystérésis dans les critères de déclenchement du HO permet :",
+      "options": [
+        "d’améliorer le débit binaire",
+        "d’éviter le phénomène de HO ping pong",
+        "d’augmenter la probabilité de blocage",
+        "d’élargir la zone de chevauchement entre cellules"
+      ],
+      "answer": [1],
+      "explanation": "L'hystérésis ajoute une marge de sécurité au seuil de décision pour éviter que le mobile ne bascule incessamment entre deux cellules (effet ping-pong) lorsque le signal fluctue à la limite des deux zones."
+    },
+    {
+      "question": "Le critère de choix de cellule cible C2 est utilisé dans les cas de :",
+      "options": [
+        "réseaux en zone rurale",
+        "réseaux hybrides UMTS-GSM_GPRS",
+        "réseaux hiérarchiques",
+        "réseaux avec composante satellitaire"
+      ],
+      "answer": [2],
+      "explanation": "Le critère C2 est spécifiquement conçu pour favoriser la resélection de cellules dans des réseaux hiérarchiques (par exemple, privilégier les microcellules pour les piétons et les macrocellules pour les véhicules rapides)."
+    },
+    {
+      "question": "Le chiffrement dans GSM se fait entre :",
+      "options": [
+        "le mobile et le MSC",
+        "le mobile et la BTS",
+        "le mobile et le BSC",
+        "le mobile et le HLR"
+      ],
+      "answer": [1],
+      "explanation": "Dans le GSM, le chiffrement (via l'algorithme A5) sécurise uniquement l'interface radio (Um), c'est-à-dire la liaison entre le mobile (MS) et la station de base (BTS)."
+    },
+    {
+      "question": "Le contrôle de puissance en GSM est mis en œuvre pour :",
+      "options": [
+        "augmenter le niveau d’interférence dans la cellule",
+        "réduire la probabilité de blocage dans les cellules voisines",
+        "diminuer le niveau de brouillage global",
+        "réduire la consommation de puissance de MS"
+      ],
+      "answer": [2, 3],
+      "explanation": "Le contrôle de puissance ajuste la puissance d'émission au strict nécessaire, ce qui économise la batterie du mobile et réduit le niveau global d'interférences (brouillage) pour les autres utilisateurs."
+    },
+    {
+      "question": "La mise à jour de localisation périodique :",
+      "options": [
+        "permet de minimiser le coût de mise à jour de localisation",
+        "exige au mobile de mettre à jour sa localisation à chaque visite d’une nouvelle zone de localisation",
+        "provoque une consommation de ressources indépendante de la mobilité de l’usager",
+        "est une technique simple"
+      ],
+      "answer": [2, 3],
+      "explanation": "La mise à jour périodique force le mobile à se signaler après un certain temps (T3212) même s'il ne bouge pas, consommant des ressources radio, mais c'est un mécanisme simple pour confirmer la présence de l'abonné."
+    },
+    {
+      "question": "Dans un réseau cellulaire, la sélection/resélection de cellules permet au mobile :",
+      "options": [
+        "d’enregistrer les informations diffusées par le réseau",
+        "de signaler ses mouvements au réseau",
+        "le changement dynamique du canal fréquentiel",
+        "d’être prêt à se connecter au réseau en cas de communication"
+      ],
+      "answer": [0, 3],
+      "explanation": "En mode veille, le mobile choisit la meilleure cellule pour écouter le canal de diffusion (BCCH) et le canal de paging (PCH) afin d'être joignable."
+    },
+    {
+      "question": "Le duplexage est le mécanisme qui permet :",
+      "options": [
+        "d’assurer des communications unidirectionnelles",
+        "de minimiser la consommation des ressources",
+        "de séparer entre la voie montante et la voie descendante dans des communications bidirectionnelles"
+      ],
+      "answer": [2],
+      "explanation": "Le duplexage (FDD ou TDD) consiste à séparer les signaux d'émission et de réception pour permettre une communication bidirectionnelle simultanée."
+    },
+    {
+      "question": "La mise à jour de localisation sur changement de zone de localisation :",
+      "options": [
+        "est une technique de mise à jour de localisation périodique",
+        "permet de minimiser le coût de paging",
+        "exige au mobile de mettre à jour sa localisation à chaque visite d’une nouvelle zone de localisation",
+        "provoque une consommation de ressources indépendante de la mobilité de l’usager"
+      ],
+      "answer": [1, 2],
+      "explanation": "Elle permet au réseau de connaître la zone (LA) précise de l'abonné, réduisant ainsi la zone de recherche (paging), et se déclenche obligatoirement à l'entrée d'une nouvelle LA."
+    },
+    {
+      "question": "Dans le système GSM, le HLR permet :",
+      "options": [
+        "le contrôle d’homologation des équipements",
+        "de stocker l’identité internationale de l’abonné utilisée par le réseau, IMSI",
+        "de mémoriser pour chaque abonné le numéro du VLR où il est enregistré",
+        "de stocker l’identité temporaire TMSI"
+      ],
+      "answer": [1, 2],
+      "explanation": "Le HLR est la base de données centrale contenant les infos permanentes (IMSI) et la localisation grossière (adresse du VLR actuel)."
+    },
+    {
+      "question": "Le concept cellulaire repose sur :",
+      "options": [
+        "le changement dynamique de fréquences",
+        "une organisation anarchique du réseau",
+        "le découpage d’un territoire en plusieurs zones géographiques",
+        "la réutilisation de fréquences"
+      ],
+      "answer": [2, 3],
+      "explanation": "Le principe fondamental est de diviser la zone en cellules et de réutiliser les mêmes fréquences dans des cellules non adjacentes pour augmenter la capacité."
+    },
+    {
+      "question": "La gestion de la localisation :",
+      "options": [
+        "permet au système de connaître à tout moment la position du mobile avec plus ou moins de précision",
+        "exige au mobile d’être à l’état dédié",
+        "repose sur la localisation et la recherche d’abonné",
+        "permet à un mobile de changer de cellule tout en maintenant sa communication"
+      ],
+      "answer": [0, 2],
+      "explanation": "Elle englobe la mise à jour de localisation (Location Update) pour suivre l'abonné (au niveau LA) et le Paging pour le trouver précisément lors d'un appel."
+    },
+    {
+      "question": "En GSM, un des motifs de déclenchement d’un handover peut être :",
+      "options": [
+        "le changement de TMSI en cours d’appel",
+        "le niveau de champ du signal du lien dédié",
+        "la qualité du signal du lien dédié",
+        "la charge en trafic de la cellule de service"
+      ],
+      "answer": [1, 2, 3],
+      "explanation": "Le handover est déclenché si la puissance (RxLev) ou la qualité (RxQual) baisse (Rescue HO), ou si la cellule est trop chargée (Traffic HO)."
+    },
+    {
+      "question": "L’UMTS FDD utilise les bandes :",
+      "options": [
+        "1920-2170MHz en UL et 2110- 2200 en DL",
+        "1920- 2170MHz en DL et 2110- 2200 en UL",
+        "1920 -1980 MHz en UL et 2110-2170 en DL",
+        "1920 -1980 MHz en DL et 2110-2170 en UL"
+      ],
+      "answer": [2],
+      "explanation": "La bande 1 UMTS (IMT-2000) standard est 1920-1980 MHz pour la montée (Uplink) et 2110-2170 MHz pour la descente (Downlink)."
+    },
+    {
+      "question": "Les objectifs de l’UMTS sont :",
+      "options": [
+        "Assurer une mobilité universelle",
+        "Supporter les applications multimédia",
+        "Assurer un temps de latence inférieur à 100ms",
+        "Permet d’atteindre un débit de 42 Mbs/s"
+      ],
+      "answer": [1],
+      "explanation": "L'apport majeur de la 3G (UMTS) par rapport à la 2G est le support du haut débit pour les applications multimédia."
+    },
+    {
+      "question": "La technique d’accès utilisée en UMTS est :",
+      "options": ["CDMA", "SDMA", "TS-CDMA", "W-CDMA"],
+      "answer": [3],
+      "explanation": "L'UMTS utilise le W-CDMA (Wideband Code Division Multiple Access) comme interface radio."
+    },
+    {
+      "question": "La classe de service C est caractérisée par :",
+      "options": [
+        "Un temps de transfert entre 100 et 200ms",
+        "Un débit d’information minimal garanti",
+        "N’exige aucune altération de l’information",
+        "Pas de performances temps réel exigées"
+      ],
+      "answer": [3],
+      "explanation": "La classe C (Interactive) concerne les échanges de données type requête/réponse (web) où l'intégrité compte plus que la contrainte temps réel stricte."
+    },
+    {
+      "question": "Un mobile passe d’une cellule dépendant du MSC/VLR1 à une cellule dépendant du MSC/VLR2, son profil",
+      "options": [
+        "se trouve dans tous les VLR et par conséquent dans le MSC/VLR2.",
+        "est transmis directement du MSC/VLR1 au MSC/VLR2",
+        "est transmis du HLR vers le MSC/VLR2"
+      ],
+      "answer": [2],
+      "explanation": "Lors d'un changement de VLR, le nouveau VLR contacte le HLR, qui lui envoie les données de l'abonné (Insert Subscriber Data)."
+    },
+    {
+      "question": "Le handover intercellulaire désigne :",
+      "options": [
+        "le changement de cellule d’un terminal en état de veille",
+        "le changement de cellule d’un terminal en communication",
+        "le changement de cellule d’un terminal en état de veille et en communication"
+      ],
+      "answer": [1],
+      "explanation": "Le terme 'handover' s'applique spécifiquement au transfert de la connexion active d'une cellule à une autre. En veille, c'est la 'resélection'."
+    },
+    {
+      "question": "Dans un système cellulaire, le concept de réutilisation de fréquence permet :",
+      "options": [
+        "le changement dynamique de fréquences",
+        "l’augmentation du nombre de communications simultanées dans le réseau",
+        "l’optimisation de l’utilisation des ressources radio",
+        "de minimiser l’interférence"
+      ],
+      "answer": [1, 2],
+      "explanation": "En réutilisant les fréquences, on multiplie la capacité totale du réseau (nombre d'appels) et on optimise le spectre limité disponible."
+    },
+    {
+      "question": "La procédure de handover peut avoir un impact au niveau :",
+      "options": [
+        "répartition du trafic entre cellules",
+        "niveau d’interférence global",
+        "qualité du lien radio",
+        "capacité de stockage des bases de données"
+      ],
+      "answer": [0, 1, 2],
+      "explanation": "Le HO permet d'équilibrer la charge, d'améliorer la qualité perçue et affecte le niveau d'interférence (en modifiant les positions d'émission)."
+    },
+    {
+      "question": "Parmi les objectifs des systèmes 3G est d’offrir :",
+      "options": [
+        "le trafic de voix, données, vidéo et objets connectés",
+        "l’accès circuit et paquet",
+        "le multimédia haut débit",
+        "le tout IP"
+      ],
+      "answer": [1, 2],
+      "explanation": "La 3G vise à fournir simultanément des services circuits (voix) et paquets (data) avec des débits suffisants pour le multimédia."
+    },
+    {
+      "question": "Dans un réseau cellulaire, le modèle hexagonal :",
+      "options": [
+        "est peu pratique",
+        "permet de minimiser le coût en termes de sites radio",
+        "permet un pavage facile et un recouvrement régulier",
+        "est la forme idéale"
+      ],
+      "answer": [1, 2],
+      "explanation": "Le modèle hexagonal est une approximation théorique idéale qui permet de couvrir une surface sans trous ni chevauchements excessifs (pavage) avec un minimum de sites."
+    },
+    {
+      "question": "Dans un réseau cellulaire, une BTS équipée d’une antenne directive permet :",
+      "options": [
+        "l’allocation de fréquences",
+        "l’amélioration de la capacité du réseau",
+        "l’amélioration de la portée sans faire recours à l’augmentation de la puissance d’émission",
+        "la décision et l’exécution du handover"
+      ],
+      "answer": [1, 2],
+      "explanation": "Les antennes directives (sectorisation) concentrent l'énergie (gain de portée) et réduisent les interférences, permettant une réutilisation de fréquence plus serrée (gain de capacité)."
+    },
+    {
+      "question": "Pourquoi un système cellulaire permet-il de couvrir le monde entier malgré la limitation des ressources fréquentielles ?",
+      "options": ["le découpage en cellules permet de recouvrir un territoire"],
+      "answer": [0],
+      "explanation": "C'est le principe de la réutilisation spatiale des fréquences grâce au découpage en petites cellules qui permet d'étendre la couverture indéfiniment avec un spectre fini."
+    },
+    {
+      "question": "1. Les systèmes sans cordon permettent :",
+      "options": [
+        "des communications unidirectionnelles",
+        "une utilisation pour le raccordement d’abonnés fixes",
+        "une faible mobilité des usagers",
+        "d’assurer une couverture étendue"
+      ],
+      "answer": [2],
+      "explanation": "Les systèmes sans cordon (type DECT/CT2) sont caractérisés par une mobilité restreinte (faible portée autour de la base) contrairement aux systèmes cellulaires. Ils sont aussi utilisés pour la boucle locale radio (WLL)."
+    },
+    {
+      "question": "2. Dans le système UMTS :",
+      "options": [
+        "un NodeB est plus autonome qu’une BTS dans le GSM",
+        "un RNC est plus complexe qu’un BSC",
+        "un NodeB est moins autonome qu’une BTS dans le GSM",
+        "une interface est envisageable entre 2 RNCs"
+      ],
+      "answer": [0, 1],
+      "explanation": "Le RNC gère les ressources radio et la mobilité, étant plus complexe que le BSC. Le NodeB gère le contrôle de puissance rapide et le soft handover, ce qui lui confère une certaine autonomie physique, bien que la gestion logique soit au RNC. L'interface Iur existe entre deux RNCs."
+    },
+    {
+      "question": "3. Les caractéristiques essentielles de l’UMTS sont :",
+      "options": [
+        "transmission asymétrique et à débit variable",
+        "qualité de service variable",
+        "transmission symétrique et à débit variable",
+        "services mobiles multimédia haut débit"
+      ],
+      "answer": [3],
+      "explanation": "L'objectif principal de la 3G (UMTS) est d'offrir des services multimédia à haut débit."
+    },
+    {
+      "question": "4. Dans le système UMTS, la transmission en mode compressé :",
+      "options": [
+        "est nécessaire dans le soft handover",
+        "est nécessaire pour le handover inter-système",
+        "est possible pour le handover inter-système",
+        "augmente le niveau d’interférences"
+      ],
+      "answer": [1],
+      "explanation": "Le mode compressé crée des interruptions dans la transmission pour permettre au mobile d'effectuer des mesures sur d'autres fréquences (GSM par exemple) en vue d'un handover inter-système."
+    },
+    {
+      "question": "5. Une borne publique dans un système sans fil assure :",
+      "options": [
+        "l’authentification des terminaux",
+        "la gestion des listes de terminaux fraudeurs",
+        "toutes les fonctions de sécurité",
+        "Gestion de la taxation et des nouveaux abonnements"
+      ],
+      "answer": [0, 3],
+      "explanation": "Dans les systèmes de type Télépoint (CT2), la borne publique doit authentifier l'usager et gérer la taxation de l'appel."
+    },
+    {
+      "question": "6. Les WLANs infra rouge sont :",
+      "options": [
+        "vulnérables à l’interférence avec les systèmes radio",
+        "faciles à installer",
+        "utilisés pour des applications fixes",
+        "conçus pour des communications faible portée"
+      ],
+      "answer": [3],
+      "explanation": "L'infrarouge ne traverse pas les murs et nécessite souvent une ligne de vue (LOS), limitant la communication à une très faible portée (pièce)."
+    },
+    {
+      "question": "7- Les réseaux radio réservés aux données :",
+      "options": [
+        "possèdent des performances équivalentes à celles des réseaux de phonie",
+        "présentent une qualité de transmission supérieure",
+        "n’exigent pas une procédure d’établissement de connexion",
+        "utilisent des protocoles spécifiques pour garantir l’acheminement des données"
+      ],
+      "answer": [2, 3],
+      "explanation": "Ces réseaux (type Mobitex) fonctionnent souvent en mode paquet (sans connexion circuit établie) et utilisent des protocoles dédiés à la data."
+    },
+    {
+      "question": "8- Lesquelles des caractéristiques suivantes sont propres aux réseaux locaux sans fil :",
+      "options": [
+        "systèmes de communication radio courte portée et à moyen débit",
+        "gérés par des opérateurs",
+        "fonctionnement en mode paquet",
+        "systèmes de communication radio courte portée et à haut débit"
+      ],
+      "answer": [0],
+      "explanation": "Bien que le WiFi soit aujourd'hui considéré haut débit, dans le contexte de l'examen (2007) et par rapport aux réseaux filaires, il était classé intermédiaire ou 'moyen/haut'. Le document source surligne l'option (a)."
+    },
+    {
+      "question": "9- Dans l’UMTS, le contrôle de puissance permet :",
+      "options": [
+        "de lutter contre les évanouissements à grande échelle sur le lien descendant",
+        "de lutter contre les évanouissements à grande échelle sur le lien montant",
+        "de lutter contre les évanouissements rapides sur les deux liens",
+        "de limiter les interférences générées sur les cellules voisines"
+      ],
+      "answer": [3],
+      "explanation": "En CDMA (UMTS), tous les utilisateurs partagent la même fréquence. Le contrôle de puissance est critique pour minimiser l'interférence qu'un utilisateur cause aux autres (effet near-far) et aux cellules voisines."
+    },
+    {
+      "question": "10- Dans la norme IEEE802.16 a :",
+      "options": [
+        "pas de différentiation de services par utilisateur",
+        "la transmission est asymétrique ou symétrique",
+        "pas de QoS garantie",
+        "la couche MAC normalisée garantissant l’accès"
+      ],
+      "answer": [3],
+      "explanation": "Le WiMAX (802.16) possède une couche MAC orientée connexion conçue pour garantir la QoS et l'accès, contrairement au 'best effort' du WiFi."
+    },
+    {
+      "question": "11- Le WiMAX est élaboré pour :",
+      "options": [
+        "offrir une solution intermédiaire entre les réseaux WLANs et cellulaires",
+        "le transport de services point-à-point et diffusés",
+        "réduire le nombre de stations de base en zone urbaine",
+        "les terminaux mobiles et fixes"
+      ],
+      "answer": [0],
+      "explanation": "Le WiMAX (WMAN) vise à couvrir des zones métropolitaines, comblant le fossé entre le WLAN (local) et le cellulaire (large couverture)."
+    },
+    {
+      "question": "12- Lesquelles des caractéristiques suivantes sont propres à la norme IEEE802.11:",
+      "options": [
+        "la transmission est asymétrique en mode TDD",
+        "pas de garantie pour les délais des services voix et données",
+        "optimisation pour des portées de 100m",
+        "supports de niveaux de services différentiés"
+      ],
+      "answer": [1],
+      "explanation": "La norme IEEE 802.11 originale est basée sur le 'Best Effort' et ne garantit pas les délais (latence), ce qui est critique pour la voix."
+    },
+    {
+      "question": "13- L’application de la WLL dans les systèmes sans fil a pour avantages :",
+      "options": [
+        "rapidité de déploiement et grande flexibilité",
+        "fournir des services aussi diversifiés que le téléphone classique",
+        "investissement initial plus faible que dans les systèmes filaires",
+        "planification simplifiée"
+      ],
+      "answer": [0, 2],
+      "explanation": "La Boucle Locale Radio (WLL) évite les travaux de génie civil coûteux (câblage) et permet une installation rapide."
+    },
+    {
+      "question": "14- Dans la norme CT2 des systèmes sans fil :",
+      "options": [
+        "transmission numérique de la signalisation et de la voix",
+        "gestion automatique de la localisation",
+        "pas de mécanisme de handover",
+        "allocation dynamique du canal radio"
+      ],
+      "answer": [0, 2],
+      "explanation": "Le CT2 est un standard numérique mais il ne supporte pas le handover (coupure si on change de borne)."
+    },
+    {
+      "question": "15- L’augmentation du débit dans les systèmes radio-mobiles est assurée par :",
+      "options": [
+        "l’utilisation de schémas de codage et de modulation adaptatifs",
+        "la configuration asymétrique",
+        "l’utilisation de modulation à efficacité spectrale optimale",
+        "l’utilisation d’antennes omnidirectionnelles"
+      ],
+      "answer": [0],
+      "explanation": "L'adaptation de lien (AMC - Adaptive Modulation and Coding) permet d'augmenter le débit quand les conditions radio sont bonnes. (Note: Le document source surligne l'option (d) par erreur, car les antennes omnidirectionnelles n'améliorent pas le débit/capacité par rapport aux sectorielles)."
+    },
+    {
+      "question": "16- Dans le système GPRS, les mobiles de classe B :",
+      "options": [
+        "permettent d’ouvrir une communication en domaine CS et une session PS simultanément",
+        "permettent l’attachement CS et PS simultanément",
+        "permettent de manière exclusive soit la communication en domaine CS soit l’ouverture d’une session PS",
+        "permettent de manière exclusive soit l’attachement CS soit l’attachement PS"
+      ],
+      "answer": [1, 2],
+      "explanation": "Les mobiles de classe B peuvent s'attacher aux deux réseaux (GSM et GPRS) simultanément, mais ne peuvent transmettre que sur l'un ou l'autre à un instant donné (pas de voix et data simultanées)."
+    },
+    {
+      "question": "17- Le protocole GTP permet de :",
+      "options": [
+        "transporter des paquets IP de manière chiffrée",
+        "transporter des paquets IP dans des trames X25",
+        "transporter des paquets X25 dans des trames IP",
+        "de transporter des paquets IP dans des trames FR"
+      ],
+      "answer": [3],
+      "explanation": "Le GTP (GPRS Tunnelling Protocol) encapsule les paquets de données (IP). Historiquement, le réseau cœur pouvait reposer sur du Frame Relay (FR) ou X.25, transportant ainsi les paquets IP tunnellés."
+    },
+    {
+      "question": "18- L’utilisation de l’IP dans le réseau cœur de l’UMTS est conçue pour :",
+      "options": [
+        "l’homogénéisation du transport dans le réseau",
+        "l’intégration de services",
+        "l’optimisation des réseaux de transport pour la voix et les données",
+        "la facilité de gestion"
+      ],
+      "answer": [0, 1],
+      "explanation": "Le passage au 'Tout IP' (All-IP) vise à unifier le transport de la voix et des données et à faciliter l'intégration de services multimédia."
+    },
+    {
+      "question": "19- Lesquelles des caractéristiques suivantes sont propres aux réseaux WPAN comme le Bluetooth :",
+      "options": [
+        "systèmes de communication radio courte portée et à moyen débit",
+        "pas d’architecture complètement définie",
+        "fonctionnement en mode paquet",
+        "systèmes de communication radio courte portée et à haut débit"
+      ],
+      "answer": [0, 2],
+      "explanation": "Le Bluetooth est une technologie courte portée, à débit moyen (vs WiFi), fonctionnant en mode paquet (TDD)."
+    },
+    {
+      "question": "20- La release 5 UMTS permet :",
+      "options": [
+        "d’introduire le couplage WLAN-réseaux cellulaires",
+        "d’introduire le HSDPA",
+        "d’évoluer vers la génération 3,5",
+        "d’introduire l’IMS dans la couche services"
+      ],
+      "answer": [1],
+      "explanation": "La Release 5 du 3GPP a introduit le HSDPA (High Speed Downlink Packet Access), marquant l'évolution vers la 3.5G."
+    },
+    {
+      "question": "1- Dans un système radio-mobile, le sous-système réseau permet :",
+      "options": [
+        "le routage des appels",
+        "l’émission et la réception des appels",
+        "le stockage et la mise à jour des données des abonnés",
+        "la supervision et le contrôle du fonctionnement du réseau"
+      ],
+      "answer": [0, 2],
+      "explanation": "Le sous-système réseau (NSS) assure les fonctions de commutation et de routage (via le MSC) ainsi que la gestion des données des abonnés (via le HLR et le VLR)."
+    },
+    {
+      "question": "2- Les Réseaux de radiocommunications professionnelles permettent :",
+      "options": [
+        "une utilisation réservée et dédiée à des groupes fermés d’utilisateurs",
+        "des échanges à caractère opérationnel",
+        "une qualité de parole élevée et couverture étendue",
+        "des communications full duplex"
+      ],
+      "answer": [0, 2],
+      "explanation": "Les réseaux PMR (Professional Mobile Radio) sont destinés à des flottes d'utilisateurs spécifiques (police, urgences, entreprises) et sont conçus pour offrir une couverture robuste et une bonne qualité de communication."
+    },
+    {
+      "question": "3- L’effet de masque est dû :",
+      "options": [
+        "aux obstacles naturels",
+        "aux obstacles naturels et artificiels",
+        "à la mobilité de la station mobile par rapport à la station de base",
+        "aux interférences co-canal"
+      ],
+      "answer": [1],
+      "explanation": "L'effet de masque (shadowing) correspond à l'atténuation du signal lorsqu'il est bloqué par des obstacles de grande taille comme des montagnes (naturels) ou des bâtiments (artificiels)."
+    },
+    {
+      "question": "4- La technique d’accès multiple FDMA consiste à :",
+      "options": [
+        "diviser la bande de fréquences en plusieurs sous bandes",
+        "offrir la bande de fréquences à chaque utilisateur pendant un intervalle de temps donné",
+        "autoriser l’allocation de la totalité de la bande de fréquences en tout temps et de manière simultanée à tous les utilisateurs",
+        "allouer une séquence aléatoire à chaque station mobile"
+      ],
+      "answer": [0],
+      "explanation": "Le FDMA (Frequency Division Multiple Access) sépare le spectre disponible en canaux de fréquences distincts attribués aux différents utilisateurs."
+    },
+    {
+      "question": "5- Dans un système radio-mobile, le sous-système radio permet :",
+      "options": [
+        "le stockage et la mise à jour des données des abonnés",
+        "l’émission et la réception des appels",
+        "le regroupement d’un certain nombre de stations de base",
+        "la centralisation de la commande de l’opérateur"
+      ],
+      "answer": [2],
+      "explanation": "Le sous-système radio (BSS) inclut le contrôleur de stations de base (BSC) qui gère et regroupe plusieurs stations de base (BTS)."
+    },
+    {
+      "question": "6- L’évanouissement est une variation du canal-radio :",
+      "options": [
+        "à grande échelle",
+        "à petite échelle",
+        "due aux obstacles naturels",
+        "liée aux trajets multiples"
+      ],
+      "answer": [1, 3],
+      "explanation": "L'évanouissement (fading) fait généralement référence aux fluctuations rapides du signal (petite échelle) causées par les interférences constructives et destructives des trajets multiples."
+    },
+    {
+      "question": "7- Le Delay Spread dépend de :",
+      "options": [
+        "la vitesse et la direction du mobile par rapport à la BTS",
+        "la distance entre les objets réfléchissants",
+        "l’environnement de propagation",
+        "l’orientation des obstacles"
+      ],
+      "answer": [1, 2],
+      "explanation": "L'étalement des retards (Delay Spread) est une caractéristique de l'environnement de propagation, dépendant de la position et de la distance des réflecteurs qui créent les trajets multiples."
+    },
+    {
+      "question": "8- Les interférences co-canal sont dues :",
+      "options": [
+        "aux émissions d’autres équipements sur des fréquences adjacentes",
+        "au bruit de fond",
+        "aux émissions d’autres équipements sur la même fréquence",
+        "au bruit interne"
+      ],
+      "answer": [2],
+      "explanation": "L'interférence co-canal est causée par l'utilisation de la même fréquence porteuse par d'autres cellules ou utilisateurs (réutilisation de fréquence)."
+    },
+    {
+      "question": "9- Une méthode d’accès multiple permet :",
+      "options": [
+        "de définir des protocoles d’accès aux canaux",
+        "de réserver de façon permanente une ressource à chaque usager",
+        "de définir une méthode de partage de la bande de fréquences en canaux physiques",
+        "une allocation dynamique des canaux"
+      ],
+      "answer": [0],
+      "explanation": "Les méthodes d'accès multiple définissent les règles et protocoles permettant à plusieurs utilisateurs de partager simultanément les ressources du canal de transmission."
+    },
+    {
+      "question": "10- Le concept cellulaire repose sur :",
+      "options": [
+        "le changement dynamique de fréquences",
+        "la visibilité directe entre émetteur et récepteur",
+        "le découpage d’un territoire en plusieurs zones géographiques",
+        "la réutilisation de fréquences"
+      ],
+      "answer": [2, 3],
+      "explanation": "Le concept cellulaire divise la zone de couverture en petites zones (cellules) et permet de réutiliser les mêmes fréquences dans des cellules suffisamment éloignées pour augmenter la capacité du réseau."
+    },
+    {
+      "question": "1. L’augmentation du débit dans les systèmes radio-mobiles est assurée par :",
+      "options": [
+        "l’utilisation de schémas de codage et de modulation adaptatifs",
+        "la configuration asymétrique",
+        "l’utilisation de modulation à efficacité spectrale optimale",
+        "l’utilisation d’antennes omnidirectionnelles"
+      ],
+      "answer": [0, 2],
+      "explanation": "L'augmentation du débit repose principalement sur l'adaptation de lien (AMC - Adaptive Modulation and Coding) et l'amélioration de l'efficacité spectrale. Note : Le document surligne l'option (d) par erreur, car les antennes omnidirectionnelles n'améliorent pas le débit par rapport aux antennes sectorielles ou intelligentes."
+    },
+    {
+      "question": "2. Pour migrer du GSM au GPRS, il faut :",
+      "options": [
+        "implanter un nouveau réseau paquet",
+        "mettre à niveau les switchs pour gérer du trafic paquet",
+        "revoir le système de billing",
+        "ajouter des interfaces avec le HLR et le BSS"
+      ],
+      "answer": [0, 2, 3],
+      "explanation": "Le GPRS nécessite l'ajout de nœuds de commutation par paquets (SGSN, GGSN) formant un réseau overlay, de nouvelles interfaces (Gb, Gr) et une mise à jour du système de facturation (au volume)."
+    },
+    {
+      "question": "3. L’entrelacement permet :",
+      "options": [
+        "d’introduire une diversité temporelle dans les transmissions",
+        "de lutter contre le fading de masquage",
+        "d’étaler les erreurs",
+        "de lutter contre le fading de Rayleigh"
+      ],
+      "answer": [0, 2],
+      "explanation": "L'entrelacement disperse les paquets d'erreurs (burst errors) causés par les évanouissements rapides, ce qui permet aux codes correcteurs d'erreurs d'être efficaces. Cela crée une diversité temporelle."
+    },
+    {
+      "question": "4. Les trajets multiples sont dus :",
+      "options": [
+        "au décalage en fréquence",
+        "aux émissions d’autres équipements sur des fréquences adjacentes",
+        "à la dispersion des retards",
+        "aux réflexions multiples sur les obstacles rencontrés par l’onde radio"
+      ],
+      "answer": [3],
+      "explanation": "La propagation par trajets multiples est causée par la réflexion, la diffraction et la diffusion des ondes radio sur les obstacles de l'environnement."
+    },
+    {
+      "question": "5. Dans le système GSM, les données sont chiffrées entre :",
+      "options": [
+        "le mobile et la BTS",
+        "le mobile et le MSC",
+        "le MSC et le GMSC",
+        "le mobile et le GMSC"
+      ],
+      "answer": [0],
+      "explanation": "Le chiffrement (algorithme A5) dans le GSM est appliqué uniquement sur l'interface radio (Um), c'est-à-dire entre la station mobile (MS) et la station de base (BTS)."
+    },
+    {
+      "question": "6. Le saut de fréquence lent en GSM permet :",
+      "options": [
+        "de lutter contre les interférences",
+        "de lutter contre les trous de fading rapide",
+        "d’augmenter la portée d’une BTS",
+        "de transmettre un débit de plus de 10 Mb/s"
+      ],
+      "answer": [0, 1],
+      "explanation": "Le saut de fréquence (Frequency Hopping) apporte de la diversité de fréquence pour contrer le fading sélectif (trous de fading) et permet de lisser les interférences (averaging)."
+    },
+    {
+      "question": "7- Un système cellulaire fournit le service de :",
+      "options": [
+        "téléphonie half-duplex",
+        "téléphonie full-duplex",
+        "messagerie professionnelle",
+        "mobilité et itinérance"
+      ],
+      "answer": [1, 3],
+      "explanation": "Les réseaux cellulaires offrent une communication téléphonique Full-Duplex (émission et réception simultanées pour l'usager) ainsi que la gestion de la mobilité et le roaming (itinérance)."
+    },
+    {
+      "question": "8- Dans le système GSM, le BSC permet :",
+      "options": [
+        "de gérer la mobilité des usagers",
+        "de gérer la ressource radio",
+        "la transmission des messages courts",
+        "de contrôler les puissances d’émission du mobile et/ou de la BTS"
+      ],
+      "answer": [1, 3],
+      "explanation": "Le BSC (Base Station Controller) est responsable de la gestion des ressources radio (allocation de canaux) et du contrôle de puissance. La gestion globale de la mobilité (Location Update) relève du MSC/VLR, bien que le BSC gère le handover."
+    },
+    {
+      "question": "9- Dans le système GSM, le HLR/AuC permet :",
+      "options": [
+        "le contrôle d’homologation des équipements",
+        "de stocker l’identité temporaire TMSI",
+        "de stocker l’identité internationale de l’abonné utilisée par le réseau IMSI",
+        "de stocker pour chaque abonné les triplets de sécurité (RAND, SRES, Kc)"
+      ],
+      "answer": [2, 3],
+      "explanation": "Le HLR contient les données permanentes comme l'IMSI. L'AuC (associé au HLR) génère les vecteurs d'authentification (triplets). Le TMSI est dans le VLR et l'homologation (IMEI) dans l'EIR."
+    },
+    {
+      "question": "10- Dans un réseau cellulaire, la sélection/resélection de cellules permet au mobile :",
+      "options": [
+        "d’enregistrer les infos diffusées par le réseau",
+        "de changer de canal radio en cours de communication",
+        "de signaler ses mouvements au réseau",
+        "d’être prêt à se connecter au réseau en cas de communication"
+      ],
+      "answer": [3],
+      "explanation": "En mode veille (Idle), le mobile sélectionne la meilleure cellule pour camper. Cela lui permet d'écouter le canal de paging et d'être prêt à initier ou recevoir un appel (accès au réseau) dans les meilleures conditions."
+    },
+    {
+      "question": "1- La technique d’accès multiple CDMA consiste à :",
+      "options": [
+        "diviser la bande de fréquences en plusieurs sous bandes",
+        "offrir la bande de fréquences à chaque utilisateur pendant un intervalle de temps donné",
+        "autoriser l’allocation de la totalité de la bande de fréquences en tout temps et de manière simultanée à tous les utilisateurs",
+        "allouer une séquence aléatoire à chaque station mobile"
+      ],
+      "answer": [2, 3],
+      "explanation": "Le CDMA (Code Division Multiple Access) est une technique à étalement de spectre où tous les utilisateurs partagent simultanément toute la bande de fréquence. Ils sont distingués par des codes (séquences) uniques et orthogonaux."
+    },
+    {
+      "question": "2- La technique d’entrelacement permet :",
+      "options": [
+        "de lutter contre le fading lent",
+        "de lutter contre le fading rapide",
+        "de réduire le taux d’erreur binaire",
+        "d’améliorer la qualité des communications"
+      ],
+      "answer": [1, 2, 3],
+      "explanation": "L'entrelacement disperse les paquets d'erreurs (bursts) causés par les évanouissements rapides (fast fading), rendant les codes correcteurs d'erreurs plus efficaces, ce qui réduit le taux d'erreur binaire (BER) et améliore la qualité globale."
+    },
+    {
+      "question": "3- Les interférences co-canal sont dues :",
+      "options": [
+        "aux émissions d’autres équipements sur des fréquences adjacentes",
+        "au bruit de fond",
+        "aux émissions d’autres équipements sur la même fréquence",
+        "au bruit interne"
+      ],
+      "answer": [2],
+      "explanation": "L'interférence co-canal survient lorsque plusieurs cellules (dans un motif de réutilisation) utilisent la même fréquence porteuse."
+    },
+    {
+      "question": "4- Les trajets multiples sont dus :",
+      "options": [
+        "au décalage en fréquence",
+        "aux émissions d’autres équipements sur des fréquences adjacentes",
+        "à la dispersion des retards",
+        "aux réflexions multiples sur les obstacles rencontrés par l’onde radio"
+      ],
+      "answer": [2, 3],
+      "explanation": "La propagation par trajets multiples est causée par la réflexion, la diffraction et la diffusion sur les obstacles. Cela entraîne une dispersion des retards (Delay Spread) car les signaux arrivent à des moments différents."
+    },
+    {
+      "question": "5- Le concept cellulaire repose sur :",
+      "options": [
+        "le changement dynamique de fréquences",
+        "la visibilité directe entre émetteur et récepteur",
+        "le découpage d’un territoire en plusieurs zones géographiques",
+        "la réutilisation de fréquences"
+      ],
+      "answer": [2, 3],
+      "explanation": "Pour augmenter la capacité, le territoire est découpé en petites zones (cellules) et les fréquences sont réutilisées à une certaine distance pour éviter les interférences."
+    },
+    {
+      "question": "6- Dans un système radio-mobile, le sous-système radio permet :",
+      "options": [
+        "le stockage et la mise à jour des données des abonnés",
+        "l’émission et la réception des appels",
+        "la centralisation de la commande de l’opérateur",
+        "le regroupement d’un certain nombre de stations de base"
+      ],
+      "answer": [1],
+      "explanation": "Le sous-système radio (BSS) gère l'interface radio, assurant ainsi l'émission et la réception physique des appels entre le mobile et le réseau."
+    },
+    {
+      "question": "7- Un système cellulaire fournit le service de :",
+      "options": [
+        "téléphonie half-duplex",
+        "téléphonie full-duplex",
+        "messagerie professionnelle",
+        "mobilité et itinérance"
+      ],
+      "answer": [1, 3],
+      "explanation": "Les réseaux cellulaires comme le GSM offrent la téléphonie en duplex intégral (parler et écouter simultanément) et permettent à l'utilisateur de se déplacer (mobilité) et d'utiliser d'autres réseaux (itinérance/roaming)."
+    },
+    {
+      "question": "8- Dans un réseau GSM, la mise en œuvre du saut de fréquence permet :",
+      "options": [
+        "d’offrir la confidentialité des communications",
+        "la lutte contre le vol de terminaux",
+        "l’utilisation des fréquences 900 et 1800 MHz",
+        "la lutte contre le fading rapide"
+      ],
+      "answer": [0, 3],
+      "explanation": "Le saut de fréquence (Frequency Hopping) apporte de la diversité de fréquence pour contrer les évanouissements rapides (fading sélectif) et rend l'interception plus difficile (confidentialité)."
+    },
+    {
+      "question": "9- Dans un réseau radio-mobile le roaming nécessite :",
+      "options": [
+        "la mise en œuvre d’une identification spécifique des usagers",
+        "l’établissement d’une communication",
+        "au système de connaître en permanence la localisation de chaque mobile",
+        "au mobile de rester à l’état de veille"
+      ],
+      "answer": [0],
+      "explanation": "Pour que le roaming fonctionne, l'usager doit être identifié de manière unique (via l'IMSI) afin que le réseau visité puisse interroger le réseau domestique (HLR) pour l'authentification et l'autorisation."
+    },
+    {
+      "question": "10- Dans un réseau cellulaire, la sélection/resélection de cellules permet au mobile :",
+      "options": [
+        "d’enregistrer les infos diffusées par le réseau",
+        "de changer de canal radio en cours de communication",
+        "de signaler ses mouvements au réseau",
+        "d’être prêt à se connecter au réseau en cas de communication"
+      ],
+      "answer": [0, 2],
+      "explanation": "En mode veille, le mobile sélectionne une cellule, décode ses informations de diffusion (BCCH) et, si la zone de localisation change suite à une resélection, il signale son mouvement (Location Update)."
+    }
+  ]
+}

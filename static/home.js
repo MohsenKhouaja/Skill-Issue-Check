@@ -53,6 +53,22 @@ submitBtn.addEventListener("click", submitQuiz);
 restartBtn.addEventListener("click", restartQuiz);
 changeSeanceBtn.addEventListener("click", showSeanceSelection);
 
+// Keyboard shortcuts
+document.addEventListener("keydown", (e) => {
+  // Only handle shortcuts when quiz is active
+  if (!quizContainer.classList.contains("hide")) {
+    if (e.key === "ArrowLeft" && !prevBtn.disabled) {
+      showPrevQuestion();
+    } else if (e.key === "ArrowRight") {
+      if (!nextBtn.classList.contains("hide") && !nextBtn.disabled) {
+        showNextQuestion();
+      } else if (!submitBtn.classList.contains("hide") && !submitBtn.disabled) {
+        submitQuiz();
+      }
+    }
+  }
+});
+
 // Functions
 function handleFileUpload(e) {
   const file = e.target.files[0];
@@ -295,6 +311,7 @@ function loadQuestion() {
     optionElement.classList.add("option");
     optionElement.textContent = option;
     optionElement.dataset.index = index;
+    optionElement.style.pointerEvents = 'auto'; // Re-enable clicking
 
     // Highlight selected options if user has previously answered
     if (userAnswers[currentQuestionIndex]) {
@@ -396,12 +413,64 @@ function showPrevQuestion() {
 }
 
 function showNextQuestion(isSkip = false) {
-  if (currentQuestionIndex < currentQuestions.length - 1) {
-    currentQuestionIndex++;
-    loadQuestion();
-  } else if (isSkip) {
-    submitQuiz();
+  // Show feedback before moving to next question
+  if (!isSkip) {
+    showFeedback();
+    // Wait a moment before moving to next question
+    setTimeout(() => {
+      if (currentQuestionIndex < currentQuestions.length - 1) {
+        currentQuestionIndex++;
+        loadQuestion();
+      }
+    }, 1500);
+  } else {
+    if (currentQuestionIndex < currentQuestions.length - 1) {
+      currentQuestionIndex++;
+      loadQuestion();
+    } else {
+      submitQuiz();
+    }
   }
+}
+
+function showFeedback() {
+  const currentQuestion = currentQuestions[currentQuestionIndex];
+  const userAnswer = userAnswers[currentQuestionIndex];
+  const isMultiAnswer = Array.isArray(currentQuestion.answer);
+  const options = optionsContainer.querySelectorAll(".option");
+
+  // Disable option clicking during feedback
+  options.forEach(option => {
+    option.style.pointerEvents = 'none';
+  });
+
+  if (isMultiAnswer) {
+    // For multi-answer questions
+    options.forEach((option, index) => {
+      if (currentQuestion.answer.includes(index)) {
+        option.classList.add("correct");
+      }
+      if (Array.isArray(userAnswer) && userAnswer.includes(index)) {
+        if (!currentQuestion.answer.includes(index)) {
+          option.classList.add("incorrect");
+        }
+      }
+    });
+  } else {
+    // For single answer questions
+    options.forEach((option, index) => {
+      if (index === currentQuestion.answer) {
+        option.classList.add("correct");
+      }
+      if (userAnswer === index && index !== currentQuestion.answer) {
+        option.classList.add("incorrect");
+      }
+    });
+  }
+
+  // Disable next button during feedback
+  nextBtn.disabled = true;
+  submitBtn.disabled = true;
 }
 
 function isCorrectAnswer(answer, correctAnswer) {
@@ -455,8 +524,13 @@ function calculateScore() {
 }
 
 function submitQuiz() {
-  // Calculate score
-  const wrongAnswers = calculateScore();
+  // Show feedback for last question
+  showFeedback();
+  
+  // Wait before showing results
+  setTimeout(() => {
+    // Calculate score
+    const wrongAnswers = calculateScore();
 
   // Update score text
   scoreText.textContent = `Vous avez obtenu ${score}/${currentQuestions.length} points`;
@@ -500,9 +574,10 @@ function submitQuiz() {
     wrongAnswersContainer.appendChild(perfectScore);
   }
 
-  // Show results
-  quizContainer.classList.add("hide");
-  resultContainer.classList.remove("hide");
+    // Show results
+    quizContainer.classList.add("hide");
+    resultContainer.classList.remove("hide");
+  }, 1500);
 }
 
 function restartQuiz() {
