@@ -61,7 +61,7 @@
         "l'optimisation de l'utilisation des ressources radio",
         "de minimiser l'interférence"
       ],
-      "answer": [0,1],
+      "answer": [1,2],
       "explanation": "La réutilisation des fréquences permet d'augmenter la capacité du réseau (plus d'utilisateurs) en réutilisant le même spectre dans des cellules éloignées."
     },
     {
