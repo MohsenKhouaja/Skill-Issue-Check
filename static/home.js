@@ -367,12 +367,7 @@ function loadQuestion() {
     "multi-select-indicator"
   );
 
-  if (isMultiAnswer) {
-    multiSelectIndicator.textContent = `(Sélectionnez ${question.answer.length} réponses)`;
-    multiSelectIndicator.classList.remove("hide");
-  } else {
-    multiSelectIndicator.classList.add("hide");
-  }
+  multiSelectIndicator.classList.add("hide");
 }
 
 function selectOption(e) {
