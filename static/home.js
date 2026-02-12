@@ -162,9 +162,9 @@ function startQuiz() {
 }
 
 document.getElementById("copy-prompt").addEventListener("click", () => {
-  const promptText = `Analyze the provided document in detail and extract the key concepts, definitions, and critical points necessary for a deep understanding of the course. Then, generate as much question as your output context window can generate;multiple-choice questions (QCM) in French, following the format below:
+  const promptText = `Analyze the provided document in detail and extract the key concepts, definitions, and critical points necessary for a deep understanding of the course. Then, generate 20 questions; multiple-choice questions (QCM) in same language as the document, following the format below:
 Questions should be clear, precise, and relevant to the document's content.
-The answer choices (options) should include one correct answer and three plausible distractors.
+The answer choices (options) should include plausible distractors.
 The correct answer should be indicated with its index in the list.
 Provide a brief yet informative explanation for each answer to reinforce understanding.
 Ensure the questions cover various levels of cognition, including factual recall, comprehension, and application.
@@ -173,26 +173,26 @@ Use the following JSON format:
 {
     "seance 1": [
         {
-            "question": "Quel était le montant approximatif du financement mondial en capital-risque des startups au troisième trimestre 2021 ?",
+            "question": "Question text here; (example answers 0 and 1 are correct, so answer is [0,1])",
             "options": [
-                "77 milliards USD",
-                "158 milliards USD",
-                "100 milliards USD",
-                "200 milliards USD"
+                "Option 1",
+                "Option 2",
+                "Option 3",
+                "Option 4"
             ],
-            "answer": 1,
-            "explanation": "Le financement mondial en capital-risque des startups au troisième trimestre 2021 s'élevait à environ 158 milliards USD."
+            "answer": [0,1],
+            "explanation": "Explanation text here"
         },
         {
-            "question": "Combien de nouvelles licornes ont émergé au troisième trimestre 2021 ?",
+            "question": "Question 2 text here",
             "options": [
-                "37",
-                "77",
-                "200"
-                "127",
+                "Option 1",
+                "Option 2",
+                "Option 3",
+                "Option 4",
             ],
-            "answer": 3,
-            "explanation": "Au troisième trimestre 2021, 127 nouvelles licornes ont émergé."
+            "answer": [3],
+            "explanation": "Explanation text here"
         }
     ]
 }
@@ -631,21 +631,55 @@ function renderCourseList(courses) {
     return;
   }
 
+  // Group courses by INDP
+  const groups = {};
   courses.forEach((course) => {
-    const courseElement = document.createElement("div");
-    courseElement.className = "course-item";
-    courseElement.setAttribute("data-id", course.id);
-    courseElement.textContent = course.name;
+    const key = course.INDP || "Other";
+    if (!groups[key]) groups[key] = [];
+    groups[key].push(course);
+  });
 
-    courseElement.addEventListener("click", () => {
-      document.querySelectorAll(".course-item").forEach((item) => {
-        item.classList.remove("active");
-      });
-      courseElement.classList.add("active");
-      loadCourseJSON(course.filename);
+  // Sort group keys descending (INDP3 first, then INDP2, etc.)
+  const sortedKeys = Object.keys(groups).sort((a, b) => b - a);
+
+  sortedKeys.forEach((key) => {
+    const groupEl = document.createElement("div");
+    groupEl.className = "course-group";
+
+    const header = document.createElement("div");
+    header.className = "course-group-header";
+    header.innerHTML = `<span class="course-group-arrow">&#9654;</span> INDP${key} <span class="course-group-count">(${groups[key].length})</span>`;
+    header.addEventListener("click", () => {
+      groupEl.classList.toggle("open");
     });
 
-    courseList.appendChild(courseElement);
+    const body = document.createElement("div");
+    body.className = "course-group-body";
+
+    const inner = document.createElement("div");
+    inner.className = "course-group-inner";
+
+    groups[key].forEach((course) => {
+      const courseElement = document.createElement("div");
+      courseElement.className = "course-item";
+      courseElement.setAttribute("data-id", course.id);
+      courseElement.textContent = course.name;
+
+      courseElement.addEventListener("click", () => {
+        document.querySelectorAll(".course-item").forEach((item) => {
+          item.classList.remove("active");
+        });
+        courseElement.classList.add("active");
+        loadCourseJSON(course.filename);
+      });
+
+      inner.appendChild(courseElement);
+    });
+
+    body.appendChild(inner);
+    groupEl.appendChild(header);
+    groupEl.appendChild(body);
+    courseList.appendChild(groupEl);
   });
 }
 
