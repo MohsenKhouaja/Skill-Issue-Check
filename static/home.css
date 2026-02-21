@@ -274,11 +274,16 @@ h1 {
 }
 
 .sidebar {
-  width: 250px;
-  background-color: white;
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  margin-right: 20px;
+    width: 250px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 140px);
+    position: sticky;
+    top: 10px;
 }
 
 .sidebar h2 {
@@ -289,11 +294,14 @@ h1 {
 }
 
 .course-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-height: 70vh;
-  overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 70vh;
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
+    overscroll-behavior: contain;
 }
 
 .course-item {
@@ -314,6 +322,68 @@ h1 {
   background-color: rgba(52, 152, 219, 0.1);
   border-left-color: var(--primary);
   font-weight: 500;
+}
+
+/* Accordion / collapsible course groups */
+.course-group {
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.course-group-header {
+    padding: 10px 12px;
+    background-color: var(--primary);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 6px;
+    user-select: none;
+    transition: background-color 0.2s ease;
+}
+
+.course-group-header:hover {
+    background-color: #2980b9;
+}
+
+.course-group-arrow {
+    font-size: 0.7em;
+    transition: transform 0.25s ease;
+    display: inline-block;
+}
+
+.course-group.open .course-group-arrow {
+    transform: rotate(90deg);
+}
+
+.course-group-count {
+    margin-left: auto;
+    font-weight: 400;
+    opacity: 0.85;
+    font-size: 0.85em;
+}
+
+.course-group-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.course-group.open .course-group-body {
+    max-height: 320px;
+}
+
+.course-group-inner {
+    overflow-y: auto;
+    max-height: 300px;
+    padding: 6px 0;
+    overscroll-behavior: contain;
+}
+
+.course-group-body .course-item {
+    margin-top: 6px;
 }
 
 .loading-indicator {
