@@ -357,7 +357,7 @@ function loadQuestion() {
   }
 
   // Add visual indicator if question requires multiple answers
-  const isMultiAnswer = Array.isArray(question.answer);
+  const isMultiAnswer = Array.isArray(question.answer) && question.answer.length > 1;
   const multiSelectIndicator = document.getElementById(
     "multi-select-indicator"
   );
@@ -373,7 +373,7 @@ function loadQuestion() {
 function selectOption(e) {
   const currentQuestion = currentQuestions[currentQuestionIndex];
   const selectedIndex = parseInt(e.target.dataset.index);
-  const isMultiAnswer = Array.isArray(currentQuestion.answer);
+  const isMultiAnswer = Array.isArray(currentQuestion.answer) && currentQuestion.answer.length > 1;
 
   if (isMultiAnswer) {
     // For multiple answer questions
@@ -393,20 +393,25 @@ function selectOption(e) {
       userAnswers[currentQuestionIndex].push(selectedIndex);
     }
   } else {
-    // For single answer questions (original behavior)
+    // For single answer questions (or single-element arrays)
     const options = optionsContainer.querySelectorAll(".option");
     options.forEach((option) => option.classList.remove("selected"));
     e.target.classList.add("selected");
-    userAnswers[currentQuestionIndex] = selectedIndex;
+    
+    // Normalize user answer: if the data expects an array [x], store [selectedIndex]
+    if (Array.isArray(currentQuestion.answer)) {
+      userAnswers[currentQuestionIndex] = [selectedIndex];
+    } else {
+      userAnswers[currentQuestionIndex] = selectedIndex;
+    }
 
     // Show immediate feedback for single answer
     showFeedback();
   }
 
   // Enable next/submit button if something is selected
-  const hasAnswer = isMultiAnswer
-    ? Array.isArray(userAnswers[currentQuestionIndex]) &&
-      userAnswers[currentQuestionIndex].length > 0
+  const hasAnswer = Array.isArray(userAnswers[currentQuestionIndex]) 
+    ? userAnswers[currentQuestionIndex].length > 0 
     : userAnswers[currentQuestionIndex] !== null;
 
   nextBtn.disabled = !hasAnswer;
@@ -455,7 +460,7 @@ function showNextQuestion(isSkip = false) {
 function showFeedback() {
   const currentQuestion = currentQuestions[currentQuestionIndex];
   const userAnswer = userAnswers[currentQuestionIndex];
-  const isMultiAnswer = Array.isArray(currentQuestion.answer);
+  const isMultiAnswer = Array.isArray(currentQuestion.answer) && currentQuestion.answer.length > 1;
   const options = optionsContainer.querySelectorAll(".option");
 
   // Disable option clicking during feedback
@@ -503,7 +508,7 @@ function showFeedback() {
 function showFeedbackOnly() {
   const currentQuestion = currentQuestions[currentQuestionIndex];
   const userAnswer = userAnswers[currentQuestionIndex];
-  const isMultiAnswer = Array.isArray(currentQuestion.answer);
+  const isMultiAnswer = Array.isArray(currentQuestion.answer) && currentQuestion.answer.length > 1;
   const options = optionsContainer.querySelectorAll(".option");
 
   // Don't show feedback if already shown
