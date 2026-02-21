@@ -12,7 +12,6 @@ const quizContainer = document.getElementById("quiz-container");
 const resultContainer = document.getElementById("result-container");
 const fileInput = document.getElementById("file-input");
 const seanceSelector = document.getElementById("seance-selector");
-const startQuizBtn = document.getElementById("start-quiz");
 const seanceTitle = document.getElementById("seance-title");
 const currentQuestionSpan = document.getElementById("current-question");
 const totalQuestionsSpan = document.getElementById("total-questions");
@@ -33,7 +32,6 @@ const geminiPromptContainer = document.getElementById(
 
 // Event Listeners
 fileInput.addEventListener("change", handleFileUpload);
-startQuizBtn.addEventListener("click", startQuiz);
 prevBtn.addEventListener("click", showPrevQuestion);
 skipBtn.addEventListener("click", () => {
   userAnswers[currentQuestionIndex] = -1; // Mark as skipped
@@ -116,45 +114,42 @@ function loadQuizData(data) {
   const cardsContainer = document.getElementById("seance-cards-container");
   cardsContainer.innerHTML = "";
 
-  for (const seance in quizData) {
-    const card = document.createElement("div");
-    card.classList.add("seance-card");
-    card.dataset.seance = seance;
+  const seanceNames = Object.keys(quizData);
 
-    const questionCount = quizData[seance].length;
+  if (seanceNames.length === 1) {
+    // If only one seance, start it automatically
+    currentSeance = seanceNames[0];
+    startQuiz();
+  } else {
+    for (const seance in quizData) {
+      const card = document.createElement("div");
+      card.classList.add("seance-card");
+      card.dataset.seance = seance;
 
-    card.innerHTML = `
+      const questionCount = quizData[seance].length;
+
+      card.innerHTML = `
             <div class="seance-card-title">${formatSeanceName(seance)}</div>
             <div class="seance-card-info">${questionCount} questions</div>
         `;
 
-    card.addEventListener("click", selectSeance);
-    cardsContainer.appendChild(card);
+      card.addEventListener("click", selectSeance);
+      cardsContainer.appendChild(card);
+    }
+
+    // Show seance selection
+    uploadSection.classList.add("hide");
+    geminiPromptContainer.classList.add("hide");
+    seanceSelection.classList.remove("hide");
   }
-
-  // Disable the start button until a seance is selected
-  document.getElementById("start-quiz").disabled = true;
-
-  // Show seance selection
-  uploadSection.classList.add("hide");
-  geminiPromptContainer.classList.add("hide");
-  seanceSelection.classList.remove("hide");
 }
 
 function selectSeance(e) {
-  // Remove selected class from all cards
-  const allCards = document.querySelectorAll(".seance-card");
-  allCards.forEach((card) => card.classList.remove("selected"));
-
-  // Add selected class to clicked card
-  const card = e.currentTarget;
-  card.classList.add("selected");
-
   // Update current seance
-  currentSeance = card.dataset.seance;
+  currentSeance = e.currentTarget.dataset.seance;
 
-  // Enable start button
-  document.getElementById("start-quiz").disabled = false;
+  // Start quiz immediately
+  startQuiz();
 }
 
 function formatSeanceName(seanceName) {
@@ -360,6 +355,19 @@ function loadQuestion() {
     nextBtn.classList.remove("hide");
     submitBtn.classList.add("hide");
   }
+
+  // Add visual indicator if question requires multiple answers
+  const isMultiAnswer = Array.isArray(question.answer);
+  const multiSelectIndicator = document.getElementById(
+    "multi-select-indicator"
+  );
+
+  if (isMultiAnswer) {
+    multiSelectIndicator.textContent = "(Plusieurs réponses possibles)";
+    multiSelectIndicator.classList.remove("hide");
+  } else {
+    multiSelectIndicator.classList.add("hide");
+  }
 }
 
 function selectOption(e) {
@@ -390,6 +398,9 @@ function selectOption(e) {
     options.forEach((option) => option.classList.remove("selected"));
     e.target.classList.add("selected");
     userAnswers[currentQuestionIndex] = selectedIndex;
+
+    // Show immediate feedback for single answer
+    showFeedback();
   }
 
   // Enable next/submit button if something is selected
