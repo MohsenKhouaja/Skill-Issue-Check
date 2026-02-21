@@ -111,6 +111,15 @@ document.getElementById("load-pasted").addEventListener("click", () => {
 function loadQuizData(data) {
   quizData = data;
 
+  // Normalize answers: convert [x] to x for single-choice questions
+  for (const seance in quizData) {
+    quizData[seance].forEach((question) => {
+      if (Array.isArray(question.answer) && question.answer.length === 1) {
+        question.answer = question.answer[0];
+      }
+    });
+  }
+
   const cardsContainer = document.getElementById("seance-cards-container");
   cardsContainer.innerHTML = "";
 
