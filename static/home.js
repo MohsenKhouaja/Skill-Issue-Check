@@ -27,8 +27,28 @@ const scoreText = document.getElementById("score-text");
 const restartBtn = document.getElementById("restart-btn");
 const changeSeanceBtn = document.getElementById("change-seance-btn");
 const geminiPromptContainer = document.getElementById(
-  "gemini-prompt-container"
+  "gemini-prompt-container",
 );
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+function shuffleOptions(question) {
+  const options = question.options;
+  const indices = Array.from({ length: options.length }, (_, i) => i);
+  shuffleArray(indices);
+  if (Array.isArray(question.answer)) {
+    question.answer = question.answer.map((oldIdx) => indices.indexOf(oldIdx));
+  } else {
+    question.answer = indices.indexOf(question.answer);
+  }
+  question.options = indices.map((i) => options[i]);
+}
 
 // Event Listeners
 fileInput.addEventListener("change", handleFileUpload);
@@ -89,7 +109,7 @@ function handleFileUpload(e) {
       loadQuizData(data);
     } catch (error) {
       alert(
-        "Erreur lors de la lecture du fichier JSON. Veuillez vérifier le format."
+        "Erreur lors de la lecture du fichier JSON. Veuillez vérifier le format.",
       );
       console.error(error);
     }
@@ -174,7 +194,13 @@ function updateSelectedSeance() {
 
 function startQuiz() {
   // Initialize quiz variables
-  currentQuestions = quizData[currentSeance];
+  currentQuestions = quizData[currentSeance].map((q) => ({
+    ...q,
+    options: [...q.options],
+    answer: Array.isArray(q.answer) ? [...q.answer] : q.answer,
+  }));
+  shuffleArray(currentQuestions);
+  currentQuestions.forEach(shuffleOptions);
   currentQuestionIndex = 0;
   score = 0;
   userAnswers = Array(currentQuestions.length).fill(null);
@@ -294,7 +320,7 @@ function handleDrop(e) {
         loadQuizData(data);
       } catch (error) {
         alert(
-          "Erreur lors de la lecture du fichier JSON. Veuillez vérifier le format."
+          "Erreur lors de la lecture du fichier JSON. Veuillez vérifier le format.",
         );
         console.error(error);
       }
@@ -368,7 +394,7 @@ function loadQuestion() {
   // Add visual indicator if question requires multiple answers
   const isMultiAnswer = Array.isArray(question.answer);
   const multiSelectIndicator = document.getElementById(
-    "multi-select-indicator"
+    "multi-select-indicator",
   );
 
   if (isMultiAnswer) {
@@ -622,7 +648,7 @@ function submitQuiz() {
 
     // Display wrong answers with explanations
     const wrongAnswersContainer = document.getElementById(
-      "wrong-answers-container"
+      "wrong-answers-container",
     );
     wrongAnswersContainer.innerHTML = "";
 
